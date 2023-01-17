@@ -1,0 +1,48 @@
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins/container";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+$primary: rgb(33, 86, 133);
+$secondary: rgb(26, 22, 25);
+$light: rgb(249,249,249);
+
+$customPrimary: rgba(255, 7, 8, 1);
+$customSecondary: rgb(0,255,0);
+
+$custom-theme-colors: (
+    "custom-primary" : $customPrimary,
+    "custom-secondary": $customSecondary
+);
+
+$link-color: $primary;
+$link-decoration: none;
+$link-shade-percentage: 25%;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+$link-hover-decoration: null;
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    xxxl: 1920px
+);
+
+$font-size-base: 1.8rem;
+$font-size-sm: $font-size-base * .875;
+$font-size-lg: $font-size-base * 1.25;
+
+$blockquote-font-size: $font-size-base * 1.25;
+
+$grid-gutter-width: 2.5rem;
+$card-bg: rgba(0, 0, 0, 0);
+
+@import "~bootstrap/scss/_variables";
+
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
+
+@import "~bootstrap/scss/bootstrap";
+
+

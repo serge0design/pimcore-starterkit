@@ -1,0 +1,41 @@
+<header>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">
+                {% if logoWebsite is pimcore_asset_svg %}
+                    {{ fileGetContents(logoWebsite.fullPath) }}
+                {% elseif logoWebsite is pimcore_asset_image %}
+                    <img class="img-fluid" src="{{ logoWebsite.fullPath }}"
+                         alt="{{ websiteTitle }}"/>
+                {% elseif logoWebsite == '' %}
+                    <span>{{ websiteTitle }}</span>
+                {% endif %}
+            </a>
+
+            {% set mainNavigation = pimcore_build_nav({active: document, root: navMainStartNode}) %}
+            <div class="collapse navbar-collapse">
+                {% include '@App/navigation/navMain'~navMainType|capitalize~'.html.twig' with {
+                    mainNavigation : mainNavigation
+                } %}
+
+                {% if  get_localized_links(document) !=[] %}
+                    {% include '@App/navigation/navLanguageSwitch.html.twig' %}
+                {% endif %}
+
+            </div>
+
+            <div class="mburger-wrapper d-flex d-lg-none">
+                <mm-burger
+                        menu="mmenu"
+                        fx="spin"
+                        ease="elastic"
+                        role="button"
+                        tabindex="0"
+                        title="{{ "Open the menu"|trans }}"
+                ></mm-burger>
+            </div>
+
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,49 @@
+{% if editmode %}
+    {% extends "layout-snippets.html.twig" %}
+{% endif %}
+{% block content %}
+    {% set infos = companyInfornation|default('') %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-6 col-lg-4">
+                    {% if infos !='' %}
+                        <p>
+                            {% if infos.company !='' %}
+                                {{ infos.company }}<br>
+                            {% endif %}
+                            {% if infos.firstname !='' and infos.lastname !='' %}
+                                {{ infos.firstname~' '~infos.lastname }} <br>
+                            {% endif %}
+                            {% if infos.address !='' %}
+                                {{ infos.address }}<br>
+                            {% endif %}
+                            {% if infos.city !='' %}
+                                {{ infos.zipCode~' '~infos.city }}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col col-sm-6 col-lg-4">
+                    {% if infos !='' %}
+                        <p>
+                            {% if infos.email !='' %}
+                                <a class="email" href="{{ 'mailto:'~infos.email|replace({' ': ''}) }}">
+                                    {{ infos.email }}<br>
+                                </a>
+                            {% endif %}
+                            {% if infos.mobile !='' %}
+                                <a class="mobile" href="{{ 'tel:'~infos.mobile|replace({' ': ''}) }}">
+                                    {{ infos.mobile }}
+                                </a>
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col col-sm-6 col-lg-4">
+                    {% include '@App/navigation/navSocialMedia.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

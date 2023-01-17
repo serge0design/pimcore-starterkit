@@ -1,0 +1,14 @@
+{% if editmode %}<!doctype html><html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+<body class="editmode">
+{% endif %}
+
+{{ block('content') }}
+
+{% if editmode %}</body></html>{% endif %}

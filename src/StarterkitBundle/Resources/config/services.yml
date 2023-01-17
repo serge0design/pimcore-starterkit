@@ -1,0 +1,25 @@
+services:
+
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+
+  StarterkitBundle\Tools\Install:
+    arguments:
+      $bundle: "@=service('kernel').getBundle('StarterkitBundle')"
+    calls:
+      - [ setTokenStorageUserResolver, [ '@Pimcore\Bundle\AdminBundle\Security\User\TokenStorageUserResolver' ] ]
+  #      - [ setSerializer, [ '@serializer' ] ]
+
+  StarterkitBundle\Event\ValidKeyFormatter:
+    class: StarterkitBundle\Event\ValidKeyFormatter
+    tags:
+      - { name: kernel.event_listener, event: pimcore.system.service.preGetValidKey, method: onGetValidKey }
+      - { name: kernel.event_listener, event: pimcore.system.service.preGetValidKey, method: onGetValidPath }
+
+  StarterkitBundle\EventListener\EditmodeListener:
+    class: StarterkitBundle\EventListener\EditmodeListener
+    tags:
+      - { name: kernel.event_listener, event: pimcore.bundle_manager.paths.js, method: onEditObjectsJsPaths }
+

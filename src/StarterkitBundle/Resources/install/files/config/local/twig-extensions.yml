@@ -1,0 +1,41 @@
+services:
+  # default configuration for services in *this* file
+  _defaults:
+    # automatically injects dependencies in your services
+    autowire: true
+    # automatically registers your services as commands, event subscribers, etc.
+    autoconfigure: true
+    # this means you cannot fetch services directly from the container via $container->get()
+    # if you need to do this, you can override this setting on individual services
+    public: false
+
+  # ---------------------------------------------------------
+  # Twig Extensions
+  # ---------------------------------------------------------
+
+  App\Twig\Extension\TwigBootstrapIconsSvg:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigGetLinkToObject:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigFileGetContents:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigLanguageSwitcher:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigMd5:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigStringToLowerFormatter:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigTests:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigUniqid:
+    tags: [ 'twig.extension' ]
+
+  App\Twig\Extension\TwigQrCode:
+    tags: [ 'twig.extension' ]

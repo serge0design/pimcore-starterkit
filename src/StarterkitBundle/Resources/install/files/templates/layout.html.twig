@@ -1,0 +1,58 @@
+{# get root node if there is no document defined (for pages which are routed directly through static route) #}
+{% if not document is defined or not document %}
+    {% set document = pimcore_document(1) %}
+{% endif %}
+{% set navMainStartNode = document.getProperty('navMainStartNode') %}
+{% if not navMainStartNode is pimcore_document %}
+    {% set navMainStartNode = pimcore_document(1) %}
+{% endif %}
+
+{% set logoWebsite = pimcore_website_config('websiteLogo')|default('') %}
+{% set websiteTitle = pimcore_website_config('websiteTitle')|default('') %}
+{% set navMainType = document.getProperty('navMainType')|replace({' ':''})|default('Default') %}
+{% set companyInfornation = pimcore_website_config('companyInfornation')|default('') %}
+{% set devMode = pimcore_website_config('developmentMode')|default(false) %}
+{% set favicons = pimcore_website_config('favicons')|default('') %}
+
+<!doctype html>
+<html lang="{{ app.request.locale }}">
+<head>
+    {% include '@App/includes/head.html.twig' %}
+</head>
+<body class="{{ editmode ? 'editMode ' : '' }}{{ devMode ? 'devMode ' : '' }} default">
+
+
+{% if (devMode) %}
+    {% include '@App/dev/grid.html.twig' %}
+{% endif %}
+
+<div id="bodyWrapper">
+    {% include '@App/includes/header.html.twig'  with {
+        document : document,
+        logoWebsite:logoWebsite,
+        websiteTitle:websiteTitle,
+        navMainStartNode : navMainStartNode,
+        navMainType : navMainType,
+    } %}
+    <main>
+        {{ block('content') }}
+    </main>
+    {% if document.hasProperty('footer') %}
+        {% set footer = document.getProperty('footer') %}
+        {{ pimcore_inc(footer, {companyInfornation: companyInfornation}) }}
+    {% endif %}
+</div>
+
+{% set mainNavigation = pimcore_build_nav({active: document, root: navMainStartNode}) %}
+{% include '@App/navigation/navMmenu.html.twig' with {
+    mainNavigation : mainNavigation
+} %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+{% block inlinescripts deferred %}
+{{ pimcore_inline_script() }}
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="dropdown dropdown-language">
+    <a class="nav-dropdown-link" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+        <i class="im im-globe" aria-hidden="true"></i>
+    </a>
+    <ul class="dropdown-menu nav-language-switch dropdown-menu-end">
+        {% for key, lang in get_localized_links(document) %}
+            <li {{ ( app.request.locale ==  key ? 'class="active"' : '') }}>
+                <a class="dropdown-item" href="{{ lang.link }}">
+                    <img class="language-switcher-img" src="{{ get_language_flag(key) }}" height="20" width="25">
+                    {{ lang.text }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+

@@ -1,0 +1,8 @@
+.main-nav-default{
+    li{
+        a{
+            @include font-encode-sans-bold;
+
+        }
+    }
+}

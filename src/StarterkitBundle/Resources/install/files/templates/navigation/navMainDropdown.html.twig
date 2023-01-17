@@ -1,0 +1,41 @@
+{% set menuRenderer = pimcore_nav_renderer('menu') %}
+
+{% macro recursiveCategory(page) %}
+    {% set menuRenderer = pimcore_nav_renderer('menu') %}
+    {% if page.isVisible() and menuRenderer.accept(page) %}
+        {% set hasChildren = page.hasPages() %}
+        {% if not hasChildren %}
+            <li class="nav-item{{ (page.active ? ' active' : '') }}">
+                <a class="nav-link" href="{{ page.getHref() }}">{{ page.getLabel() }}</a>
+            </li>
+        {% else %}
+            <li class="nav-item dropdown{{ (page.active ? ' active' : '') }}">
+                <a class="nav-link dropdown-toggle"
+                   href="{{ page.getHref() }}"
+                   role="button"
+                   data-bs-toggle="dropdown"
+                   aria-haspopup="true"
+                   id="navbarDropdownMenu{{ page.id }}"
+                   aria-expanded="false">
+                    {{ page.getLabel() }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenu{{ page.id }}">
+                    <ul>
+                        {% for page in page.getPages() %}
+                            {% if page.isVisible() and menuRenderer.accept(page) %}
+                            {{ _self.recursiveCategory(page) }}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        {% endif %}
+    {% endif %}
+{% endmacro %}
+
+<ul class="navbar-nav nav-main-dropdown">
+    {% for page in mainNavigation %}
+        {{ _self.recursiveCategory(page) }}
+    {% endfor %}
+</ul>
+

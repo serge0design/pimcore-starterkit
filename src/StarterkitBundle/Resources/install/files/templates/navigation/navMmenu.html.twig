@@ -1,0 +1,11 @@
+{% block mmenu %}
+    {% if not editmode %}
+        <div class="d-none">
+            <div id="mmenu">
+                {{ pimcore_render_nav(mainNavigation, 'menu', 'renderMenu', {
+                    maxDepth: 5,
+                }) }}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

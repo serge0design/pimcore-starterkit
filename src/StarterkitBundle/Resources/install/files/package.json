@@ -1,0 +1,50 @@
+{
+  "name": "starterkit",
+  "version": "1.0.0",
+  "description": "The most common libraries to use in Projects",
+  "author": {
+    "name": "Serge",
+    "email": "git@serge-design.ch",
+    "url": "serge.design"
+  },
+  "homepage": "serge.design",
+  "license": "ISC",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "@popperjs/core": "^2.11.5",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "bootstrap-select": "^1.13.18",
+    "bootstrap-select-dropdown": "^0.14.6",
+    "bootstrap4-dialog": "^4.4.2",
+    "core-js": "^3.22.7",
+    "jquery": "^3.6.0",
+    "jquery-mousewheel": "^3.1.13",
+    "magnific-popup": "^1.1.0",
+    "material-icons": "^1.12.0",
+    "mburger-css": "^2.0.0",
+    "mburger-webcomponent": "^3.1.1",
+    "mmenu-js": "^9.2.0",
+    "mmenu-light": "^3.2.0",
+    "popper.js": "^1.16.1",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^4.1.2",
+    "browser-sync-webpack-plugin": "^2.3.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "dotenv": "^16.0.0",
+    "file-loader": "^6.2.0",
+    "sass": "^1.43.5",
+    "sass-loader": "^13.2.0",
+    "webpack-cli": "^4.7.2",
+    "webpack-notifier": "^1.13.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  }
+}

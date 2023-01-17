@@ -1,0 +1,98 @@
+.wrapper--hero-bs-slider{
+
+        --max-height: 96rem;
+
+    @include media-breakpoint-down(lg) {
+        --max-height: 76rem;
+    }
+    @include media-breakpoint-down(sm) {
+        --max-height: 55rem;
+    }
+
+    .carousel{
+        position: relative;
+        height: 100vh;
+        max-height: var(--max-height);
+        background-color: $dark;
+
+        .carousel-item{
+            position: relative;
+            height: 100vh;
+            max-height:var(--max-height);
+        }
+
+        img {
+            position: absolute;
+            object-fit: cover;
+            height: 100vh;
+            max-height: var(--max-height);
+        }
+    }
+
+    .slider-overlay{
+        @include positionAbsFill();
+        z-index: 3;
+    }
+
+    .carousel-caption{
+        @include positionAbsFill();
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        margin-bottom: 2.5vh;
+
+        .content-wrapper{
+            max-width: 90rem;
+            padding: 2.5%;
+            font-size: 3rem;
+            text-shadow: 0.2rem .2rem 5rem rgba(26, 22, 25, 0.75);
+
+        }
+    }
+
+    .carousel-indicators{
+        z-index: 5;
+    }
+
+    .carousel-nav{
+        z-index: 5;
+
+        i{
+            font-size: 5rem;
+        }
+    }
+}
+
+.carousel-fade {
+    .carousel-inner {
+        .item {
+            transition-property: opacity;
+        }
+
+        .item,
+        .active.left,
+        .active.right {
+            opacity: 0;
+        }
+
+        .active,
+        .next.left,
+        .prev.right {
+            opacity: 1;
+        }
+
+        .next,
+        .prev,
+        .active.left,
+        .active.right {
+            left: 0;
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+}
