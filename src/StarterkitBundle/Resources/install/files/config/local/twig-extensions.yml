@@ -28,6 +28,9 @@ services:
   App\Twig\Extension\TwigMd5:
     tags: [ 'twig.extension' ]
 
+  App\Twig\Extension\TwigStringNormalizer:
+    tags: [ 'twig.extension' ]
+
   App\Twig\Extension\TwigStringToLowerFormatter:
     tags: [ 'twig.extension' ]
 

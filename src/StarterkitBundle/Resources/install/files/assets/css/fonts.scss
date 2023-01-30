@@ -1,0 +1,29 @@
+@mixin font-encode-sans{
+    font-family: 'Encode Sans', sans-serif;
+    font-display: optional
+}
+
+@mixin font-encode-sans-thin{
+    @include font-encode-sans;
+    font-weight: 100;
+}
+@mixin font-encode-sans-extralight{
+    @include font-encode-sans;
+    font-weight: 200;
+}
+@mixin font-encode-sans-light{
+    @include font-encode-sans;
+    font-weight: 300;
+}
+@mixin font-encode-sans-regular{
+    @include font-encode-sans;
+    font-weight: 400;
+}
+@mixin font-encode-sans-medium{
+    @include font-encode-sans;
+    font-weight: 500;
+}
+@mixin font-encode-sans-bold{
+    @include font-encode-sans;
+    font-weight: 700;
+}

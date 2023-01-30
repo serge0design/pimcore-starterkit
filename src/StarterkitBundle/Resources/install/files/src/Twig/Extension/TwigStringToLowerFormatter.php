@@ -2,10 +2,9 @@
 
 namespace App\Twig\Extension;
 
-use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class TwigStringToLowerFormatter extends AbstractExtension
+class TwigStringToLowerFormatter extends TwigStringNormalizer
 {
 
     /**
@@ -14,8 +13,8 @@ class TwigStringToLowerFormatter extends AbstractExtension
     public function getFunctions(): array
     {
         return [
-            new TwigFunction('stringToLowerFormatter', function (string $string): string {
-                return strtolower(preg_replace('/[^a-zA-Z0-9]+/', '-', $string));
+            new TwigFunction('getStringToLowerFormatter', function (string $string): string {
+                return strtolower($this->getStringNormalizer($string));
             })
         ];
     }
