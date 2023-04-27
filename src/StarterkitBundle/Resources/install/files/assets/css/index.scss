@@ -1,0 +1,19 @@
+@import "lib/mixins";
+@import "lib/bootstrap";
+@import "lib/magnific";
+@import "lib/slickslider";
+
+@import "navigation/navMainDefault";
+@import "navigation/navSocialMedia";
+@import "navigation/navLanguageSwitch";
+
+@import "fonts";
+@import "layout";
+@import "header";
+@import "main";
+@import "footer";
+
+@import "areas/cards";
+
+@import "dev";
+@import "editmode";

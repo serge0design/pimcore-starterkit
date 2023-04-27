@@ -1,0 +1,66 @@
+{% if editmode %}
+    {% extends "layout-snippets.html.twig" %}
+{% endif %}
+{% block content %}
+
+    {% set info = companyInformation|default('') %}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col col-sm-6 col-lg-4">
+                    {% if info !='' %}
+                        <p>
+                            {% if info.Company !='' %}
+                                {{ info.Company }}<br>
+                            {% endif %}
+                            {% if info.FirstName !='' and info.LastName !='' %}
+                                {{ info.FirstName~' '~info.LastName }} <br>
+                            {% endif %}
+                            {% if info.Street !='' %}
+                                {{ info.Street }} {{ info.StreetNr }}<br>
+                            {% endif %}
+                            {% if info.City !='' %}
+                                {{ info.ZipCode~' '~info.City }}
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col col-sm-6 col-lg-4">
+                    {% if info !='' %}
+                        <p>
+                            {% if info.Email !='' %}
+                                <a class="email" href="{{ 'mailto:'~info.Email|replace({' ': ''}) }}">
+                                    {{ info.Email }}<br>
+                                </a>
+                            {% endif %}
+                            {% if info.Mobile !='' %}
+                                <a class="mobile" href="{{ 'tel:'~info.Mobile|replace({' ': ''}) }}">
+                                    {{ info.Mobile }}
+                                </a>
+                            {% endif %}
+                        </p>
+                    {% endif %}
+                </div>
+                <div class="col col-sm-6 col-lg-4">
+                    {% include '@App/navigation/navSocialMedia.html.twig' %}
+                </div>
+                <div class="col-12 nav-wrapper">
+                    <span class="copyright">
+                        &copy; {{ 'now'|date('Y') }}  {{ (info !='' and info.company !='' ? info.company : '') }}
+                    </span>
+                    <span class="mx-3">•</span>
+
+                    {% set footerNavigation = pimcore_build_nav({
+                        active: document,
+                        root: navFooterStartNode,
+                        htmlMenuPrefix: 'footer-'
+                    }) %}
+                    {{ pimcore_render_nav(footerNavigation, 'menu', 'renderMenu', {
+                        maxDepth: 1,
+                    }) }}
+
+                </div>
+            </div>
+        </div>
+    </footer>
+{% endblock %}

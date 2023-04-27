@@ -1,0 +1,57 @@
+.wrapper--divider {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    .divider {
+        border-top-color: currentColor;
+        border-top-width: 3px;
+        background-color: unset;
+        opacity: unset;
+        min-height: 1px;
+
+        &.hasBgImg {
+            background-position: center;
+            background-size: contain;
+            height: 4.5rem;
+            background-repeat: no-repeat;
+
+            &.img-repeat {
+                background-repeat: repeat-x;
+            }
+        }
+    }
+
+    $styles: solid, dashed, dotted, double, groove;
+    @each $style in $styles {
+        .border-#{$style} {
+            border-top-style: $style;
+        }
+    }
+
+    $widths: 100, 80, 75, 66, 50, 33, 25;
+    @each $width in $widths {
+        .w-#{$width} {
+            width: percentage($width / 100);
+        }
+    }
+
+    .spacer {
+        &--x1 {
+            margin: 1rem auto;
+        }
+
+        @for $i from 1 through 7 {
+            $iletter: $i*100/4;
+
+            @if $iletter < 7 {
+                $iletter: "0" + $iletter
+            }
+
+            &--x#{$iletter} {
+                margin: $iletter/10 * 1rem auto;
+
+            }
+        }
+    }
+}

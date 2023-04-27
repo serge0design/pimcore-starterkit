@@ -1,0 +1,3 @@
+starterkit_homepage:
+    path:     /starterkit
+    defaults: { _controller: StarterkitBundle\Controller\DefaultController:indexAction }

@@ -1,0 +1,93 @@
+.wrapper {
+    &--card {
+        display: flex;
+    }
+
+    &--cards,
+    &--card {
+
+        .col-card {
+            margin-bottom: calc(var(--bs-gutter-x));
+
+            * {
+                border: none;
+                background-color: transparent;
+            }
+
+            .card {
+                border-radius: 0;
+                box-shadow: 0.1rem 0.1rem 1.5rem 0.1rem rgb(26 22 25 / 25%);
+                background-color: $white;
+
+                .card-header-wrapper {
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+
+                    &--reverse {
+                        display: flex;
+                        flex-direction: column-reverse;
+                    }
+                }
+
+                .card-header {
+                    padding: 5.25rem 1.75rem 1.75rem;
+
+                    h3 {
+                        font-size: 2.4rem
+                    }
+                }
+
+                .card-body {
+                    padding: .75rem 1.75rem .75rem;
+                    display: flex;
+                    flex-direction: column;
+
+                    .description {
+                    }
+
+                    .addon {
+                        margin-top: auto;
+                        padding-top: 1.75rem;
+
+                        .table-tarife {
+                            margin-bottom: 1.75rem;
+
+                            td {
+                                padding: .25rem 0;
+
+                                &:nth-of-type(2){
+                                    text-align: right;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .card-footer {
+                    padding: 0;
+                    display: flex;
+
+                    .btn-anchor-link {
+                        background-color: $primary;
+                        color: $white;
+                        width: 100%;
+                        border-radius: 0;
+                        padding: 2.25rem;
+
+                        &:hover{
+                            background-color:  darken($primary, 10%);
+                        }
+                    }
+                }
+            }
+
+            &.selected {
+                .card {
+                    box-shadow: 0.2rem 0.2rem 1.7rem 0.2rem rgb(26 22 25 / 75%);
+                }
+            }
+        }
+    }
+
+}

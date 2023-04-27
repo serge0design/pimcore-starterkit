@@ -1,0 +1,25 @@
+#form_builder:
+#    form:
+#        templates:
+#            bootstrap_5_layout:
+#                value: 'bootstrap_5_layout.html.twig'
+#                label: 'form_builder_form_template.bootstrap_5_layout'
+#                default: true
+#            bootstrap_5_horizontal_layout:
+#                value: 'bootstrap_5_horizontal_layout.html.twig'
+#                label: 'form_builder_form_template.bootstrap_5_horizontal_layout'
+#                default: false
+#        field:
+#            templates:
+#                col-12:
+#                    value: 'col-xs-12 label-disabled'
+#                    label: 'form_builder_type_template.col12'
+#                    default: true
+#                col-50_50:
+#                    value: 'col-12 col-lg-6 label-disabled'
+#                    label: 'form_builder_type_template.col50_50'
+#                    default: false
+#                col-33_66:
+#                    value: 'col-12 col-lg-4 label-disabled'
+#                    label: 'form_builder_type_template.col33_66'
+#                    default: false

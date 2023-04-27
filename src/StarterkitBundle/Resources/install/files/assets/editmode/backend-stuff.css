@@ -1,0 +1,152 @@
+
+.x-panel-bodyWrap {
+    background-color: #f6f6f6;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 90rem;
+    padding: 2.5rem 1.75rem;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .message {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    position: relative;
+    padding: 1.75rem 1.75rem 1rem;
+    margin-bottom: 1.75rem;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .message div {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .message b {
+    font-weight: 700;
+    margin: 0 0.33rem;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper fieldset {
+    border: 1px solid #d0d0d0;
+    padding: 5px 15px 10px 15px;
+    margin: 15px 0 25px;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper legend {
+    padding: 10px 15px;
+    line-height: 20px;
+    background-color: #f6f6f6;
+    position: relative;
+    margin-top: -20px;
+    width: auto;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .x-fieldset-header-text {
+    font: 300 13px/17px "Open Sans", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+    color: #919191;
+    padding: 1px 0;
+    float: left;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .x-form-display-field-default {
+    font: 300 13px/17px "Open Sans", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+    color: #404040;
+    margin-top: 8px;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .row-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -0.75rem;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .col-intro {
+    margin-bottom: 2.5rem;
+    padding: 0.5rem 0.75rem;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .col12 {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #d0d0d0;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .col6 {
+    width: calc( 50% - 1.5rem);
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid #d0d0d0;
+}
+
+.x-panel-bodyWrap .dataprivacy-wrapper .x-panel-body > .col6:nth-of-type(37) {
+   border-bottom: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .x-panel-bodyWrap .dataprivacy-wrapper .col6 {
+        width: 100%;
+    }
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .dataprivacy-form label {
+    color: #404040;
+    font: 300 13px/17px "Open Sans", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+    padding-top: 8px;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .dataprivacy-form .x-form-text-default {
+    color: #404040;
+    padding: 5px 10px 4px;
+    background-color: #fff;
+    font: 300 13px/21px "Open Sans", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+    min-height: 30px;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #d0d0d0;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .dataprivacy-form .x-form-text-default:focus-visible {
+    outline: none;
+    border-color: #000000;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.x-panel-bodyWrap .dataprivacy-wrapper .dataprivacy-form small {
+    font-size: 90%;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .dataprivacy-form [type=submit] {
+    width: 18rem;
+    margin-left: auto;
+    display: block;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .x-toolbar-footer {
+    padding: 6px 24px 6px 6px;
+    border-style: solid;
+    border-color: #d0d0d0;
+    border-width: 0;
+    background-image: none;
+    background-color: #ececec;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    right: 0;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .x-toolbar-footer .x-btn-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: #000;
+    background-color: #3c3f41;
+    padding: 0.5rem 0.75rem;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .x-toolbar-footer .x-btn-button .x-btn-inner-default-small {
+    font: 400 12px/16px "Open Sans", "Helvetica Neue", helvetica, arial, verdana, sans-serif;
+    color: #f0f0f0;
+    padding: 6px 6px 0;
+    max-width: 100%;
+    line-height: 12px;
+}
+.x-panel-bodyWrap .dataprivacy-wrapper .x-toolbar-footer .x-btn-button .pimcore_icon_apply {
+    display: block;
+    font-size: 16px;
+    color: #f0f0f0;
+    line-height: 16px;
+    background: url(/build/editmode/css/ok.svg) center center no-repeat !important;
+    width: 24px;
+    height: 24px;
+    margin: 0 8px 0 0;
+    border-radius: 50%;
+}

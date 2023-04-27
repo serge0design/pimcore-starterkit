@@ -1,0 +1,180 @@
+
+.x-panel-bodyWrap {
+    background-color: #f6f6f6;
+
+    .dataprivacy-wrapper {
+        display: flex;
+        flex-direction: column;
+        max-width: 90rem;
+        padding: 2.5rem 1.75rem;
+
+        .message {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            position: relative;
+            padding: 1.75rem 1.75rem 1rem;
+            margin-bottom: 1.75rem;
+
+            div{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            b {
+                font-weight: 700;
+                margin: 0 .33rem;
+            }
+        }
+
+        fieldset {
+            border: 1px solid #d0d0d0;
+            border-top-color: rgb(208, 208, 208);
+            border-top-style: solid;
+            border-top-width: 1px;
+            padding: 5px 15px 10px 15px;
+            margin: 15px 0 25px;
+        }
+
+        legend {
+            padding: 10px 15px;
+            line-height: 20px;
+            background-color: #f6f6f6;
+            position: relative;
+            margin-top: -2.2rem;
+            width: auto;
+        }
+
+        .x-fieldset-header-text {
+            font: 400 16px/20px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+            color: #919191;
+            padding: 1px 0;
+            float: left;
+        }
+
+        .x-form-display-field-default {
+            font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+            color: #404040;
+            margin-top: 8px;
+        }
+
+        .row-form {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -.75rem;
+        }
+
+        .col-intro {
+            margin-bottom: 2.5rem;
+            padding: .5rem .75rem;
+        }
+
+        .col12 {
+            width: 100%;
+            padding: .5rem .75rem;
+        }
+
+        .col6 {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding: .5rem .75rem;
+
+            @media only screen and (max-width: 768px) {
+                width: 100%;
+            }
+        }
+
+        .dataprivacy-form {
+            label {
+                color: #404040;
+                font: 300 13px/17px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+                min-height: 32px;
+                padding-top: 8px;
+            }
+
+            .x-form-text-default {
+                color: #404040;
+                padding: 5px 10px 4px;
+                background-color: #fff;
+                font: 300 13px/21px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+                min-height: 30px;
+                border: none;
+                width: 100%;
+
+                &:focus-visible {
+                    border: none;
+                    outline: none;
+                }
+            }
+
+            .x-form-trigger-wrap-default {
+                border-width: 1px;
+                border-style: solid;
+                border-color: #d0d0d0;
+
+                &:focus,
+                &:focus-visible {
+                    border-color: #000000;
+                    border-width: 1px;
+                    border-style: solid;
+                    outline: none;
+                }
+            }
+
+            small {
+                font-size: 1.2rem;
+            }
+
+            [type="submit"] {
+                width: 18rem;
+                margin-left: auto;
+                display: block;
+            }
+        }
+
+        .x-toolbar-footer {
+            padding: 6px 24px 6px 6px;
+            border-style: solid;
+            border-color: #d0d0d0;
+            border-width: 0;
+            background-image: none;
+            background-color: #ececec;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+            right: 0;
+
+            .x-btn-button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-color: #000;
+                background-color: #3c3f41;
+                padding: .5rem .75rem;
+
+                .x-btn-inner-default-small {
+                    font: 400 12px/16px 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+                    color: #f0f0f0;
+                    padding: 6px 6px 0;
+                    max-width: 100%;
+                    line-height: 12px;
+                }
+
+                .pimcore_icon_apply {
+                    display: block;
+                    font-size: 16px;
+                    color: #f0f0f0;
+                    line-height: 16px;
+                    background: url('ok.svg') center center no-repeat !important;
+                    width: 24px;
+                    height: 24px;
+                    margin: 0 8px 0 0;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}

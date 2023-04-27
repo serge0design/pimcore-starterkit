@@ -1,0 +1,51 @@
+{% apply spaceless %}
+    {% if not document is defined or not document %}
+        {% set document = pimcore_document(1) %}
+    {% endif %}
+
+    {% if document.getTitle() is not empty %}
+        {% do pimcore_head_title().set(document.getTitle()) %}
+    {% endif %}
+
+    {% do pimcore_head_title().append(pimcore_website_config("websiteTitle")) %}
+    {% do pimcore_head_title().setSeparator(' : ') %}
+
+    {% if document.getDescription() is not empty %}
+        {% do pimcore_head_meta().setDescription(document.getDescription()) %}
+    {% endif %}
+{% endapply %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{% if favicons is pimcore_asset_folder and favicons.filename == "favicon" %}
+    {% set faviconPath =  favicons.path~favicons.filename %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ faviconPath }}/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ faviconPath }}/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ faviconPath }}/favicon-16x16.png">
+    <link rel="manifest" href="{{ faviconPath }}/site.webmanifest">
+    <link rel="mask-icon" href="{{ faviconPath }}/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+{% endif %}
+
+{% block layout_head_meta deferred %}
+    {{ pimcore_head_title() }}
+    {{ pimcore_head_meta() }}
+{% endblock %}
+{% if 'https' in absolute_url(document) %}
+    <meta name="robots" content="index,follow,noarchive,max-image-preview:large,max-video-preview:-1">
+{% else %}
+    <meta name="robots" content="none">
+{% endif %}
+
+<link rel="canonical" href="{{ absolute_url(document) }}">
+
+{% block stylesheets %}
+    <link rel="canonical" href="{{ absolute_url(document) }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    {{ encore_entry_link_tags('app') }}
+{% endblock %}

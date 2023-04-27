@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>
+        {{ "Dataprivacy"|trans({},'admin') }}
+    </title>
+    <link rel="stylesheet" href="/build/editmode/css/backend-stuff.css">
+</head>
+<body class="x-panel-bodyWrap">
+<div class="dataprivacy-wrapper">
+    <fieldset class="x-fieldset x-fieldset-with-title x-fieldset-with-legend x-fieldset-default">
+        <legend class="x-fieldset-header x-fieldset-header-default">
+            <div class="x-component x-fieldset-header-text x-component-default" role="presentation">
+                {{ "Dataprivacy"|trans({},'admin') }}
+            </div>
+        </legend>
+        <div class="x-form-display-field-default">
+            {% if message != '' %}
+                <div class="message"> {{ message|raw }} </div>
+            {% endif %}
+            {{ 'general_explanation'|trans({},'admin') }}
+        </div>
+    </fieldset>
+
+    <form action="#" method="post" class="dataprivacy-form">
+        <fieldset class="x-fieldset x-fieldset-with-title x-fieldset-with-legend x-fieldset-default">
+            {% for configurationsiteid,configuration in configurations %}
+            <legend class="x-fieldset-header x-fieldset-header-default">
+                <div class="x-component x-fieldset-header-text x-component-default" role="presentation">
+                    {{ "site"|trans({},'admin') }} <strong>{{ configurationsiteid }}</strong>
+                </div>
+            </legend>
+            <div class="x-panel-body x-panel-body-default x-panel-body-default x-scroller x-noborder-trbl row-form">
+                {% for configurationidentifier,configurationvalue in configuration %}
+                    {% set trans_key = (configurationidentifier~'_helptext') %}
+                    {% set trans_value = trans_key | trans({},'admin') %}
+
+                    <div class="col6">
+                        <label class="x-fieldset-header-text "
+                               for="{{ configurationsiteid }}[{{ configurationidentifier }}]">
+                            {{ configurationidentifier|trans({},'admin') }}
+                        </label>
+                        <div class="x-form-trigger-wrap x-form-trigger-wrap-default">
+                            <input class="x-form-text-default"
+                                   type="text"
+                                   value="{{ configurationvalue }}"
+                                   id="{{ configurationsiteid }}[{{ configurationidentifier }}]"
+                                   name="{{ configurationsiteid }}[{{ configurationidentifier }}]"
+                            />
+                        </div>
+                        <div class="x-form-display-field-default">
+                            <small>
+                                {{ trans_key == trans_value ? '' : trans_value }}
+                            </small>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                {% endfor %}
+
+                <div class="x-toolbar x-docked x-toolbar-footer x-box-layout-ct">
+                    <div class="x-box-inner">
+                        <div class="x-box-target">
+                            <button
+                                type="submit"
+                                class="x-btn-button x-btn-button-default-small x-btn-text x-btn-icon x-btn-icon-left x-btn-button-center">
+                                <span class="pimcore_icon_apply"></span>
+                                <span class="x-btn-inner-default-small">{{ 'Submit'|trans({},'admin') }}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

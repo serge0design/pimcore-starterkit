@@ -1,0 +1,14 @@
+{% set smIcons = pimcore_website_config('CompanyInformation')|default('') %}
+{% if(smIcons !='') %}
+    <ul class="nav nav-social-media">
+        {% if smIcons.socialMedia != [] %}
+            {% for item in smIcons.socialMedia %}
+                <li class="icon sm-icon">
+                    <a target="_parent" href="{{ item.Link.data }}">
+                        <i class="im {{ 'im-'~item.Name.data }}" aria-hidden="true"></i>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+{% endif %}

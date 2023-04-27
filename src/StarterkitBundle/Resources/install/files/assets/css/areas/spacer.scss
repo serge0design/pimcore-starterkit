@@ -1,0 +1,23 @@
+
+.wrapper--spacer {
+    position: relative;
+    width: 100%;
+    border: 1px solid #e3e3e3;
+    background-color: rgba(206, 206, 206, .25);
+    background-image: repeating-linear-gradient(30deg, transparent, transparent 3.5rem, rgba(255, 255, 255, .25) 3.5rem, rgba(255, 255, 255, .25) 7rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        font-weight: bold;
+    }
+
+    .spacer {
+        @for $i from 1 through 5 {
+            &-x#{$i} {
+                padding: $i * 1.25rem 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+@mixin positionAbsFill {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@mixin transform($transform) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -ms-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+
+@mixin user-select($userSelect) {
+    -webkit-user-select: $userSelect;
+    -khtml-user-select: $userSelect;
+    -moz-user-select: $userSelect;
+    -ms-user-select: $userSelect;
+    user-select: $userSelect;
+}
+
+@mixin touch-action($touchAction) {
+    -ms-touch-action: $touchAction;
+    touch-action: $touchAction;
+}
+
+@mixin font-smoothing(){
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin unsetStyles{
+    background: transparent;
+    color: transparent;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+}

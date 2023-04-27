@@ -1,0 +1,81 @@
+.dropdown-language {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+
+    > a {
+        padding: 0.5rem 1.25rem 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        i {
+            font-size: 2rem;
+            color: $white;
+            text-shadow: 0.2rem 0 0.075rem rgba($secondary, 0.75);
+            @include transition(all .3s ease-in-out)
+        }
+
+        &:hover {
+            i {
+                color: $secondary;
+                text-shadow: unset;
+            }
+        }
+    }
+
+    .dropdown-menu-end[data-bs-popper] {
+        right: auto;
+        left: auto;
+    }
+}
+
+.nav-language-switch {
+    li {
+
+        a.dropdown-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 1.2rem;
+
+            img {
+                filter: grayscale(100%);
+                opacity: .5;
+            }
+
+            &:hover,
+            &:focus {
+                background-color: transparent;
+                color: inherit;
+
+                img {
+                    filter: unset;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.active {
+            a.dropdown-item {
+                img {
+                    filter: unset;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.is-heroViewport{
+    header {
+        .dropdown-language {
+            > a {
+                i {
+                    color: $dark;
+                    text-shadow: none;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+{
+    "name": "serge0design/pimcore-starterkit",
+    "license": "GPL-3.0-or-later",
+    "type": "pimcore-bundle",
+    "keywords": [
+        "pimcore",
+        "starterkit"
+    ],
+    "description": "This Pimcore StarterkitBundle copies some recommended files to setup a boilerplate template and requires an new pimcore skeleton base Instalation.",
+    "homepage": "https://github.com/serge0design/pimcore-starterkit.git",
+    "authors": [
+        {
+            "name": "serge.design - Serge",
+            "email": "github@serge.design",
+            "homepage": "https://serge.design",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "StarterkitBundle\\": "src/StarterkitBundle"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "extra": {
+        "pimcore": {
+            "bundles": [
+                "StarterkitBundle\\StarterkitBundle"
+            ]
+        }
+    },
+    "require": {
+        "pimcore/pimcore": "10.*",
+        "serge0design/pimcore-starterkit-areas": "^1.0",
+        "serge0design/pimcore-custom-twig": "^1.0",
+        "symfony/webpack-encore-bundle" : "^v1.16",
+        "dachcom-digital/formbuilder": "^4.2",
+        "pringuin/dataprivacybundle" : "^1.0"
+    },
+    "require-dev": {}
+}
+

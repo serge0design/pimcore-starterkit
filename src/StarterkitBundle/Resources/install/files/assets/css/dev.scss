@@ -1,0 +1,28 @@
+body {
+
+  &.devMode {
+    $media-querys: 562, 768, 992, 1200, 1400, 1920;
+    @each $media-query in $media-querys {
+      $i: index($media-querys, $media-query);
+      @media only screen and (min-width: #{$media-query}px) {
+        background-color: rgba(0, 0, 0, $i * percentage(0.025));
+      }
+    }
+  }
+
+  section#devMode {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    min-height: 100vh;
+
+    .row * {
+      min-height: 100vh;
+
+      div {
+        background-color: rgba(0, 0, 0, .025);
+      }
+    }
+  }
+
+}

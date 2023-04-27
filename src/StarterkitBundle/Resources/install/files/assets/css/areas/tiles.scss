@@ -1,0 +1,63 @@
+.wrapper--tiles {
+    .row {
+        &:nth-of-type(even) {
+            flex-direction: row-reverse;
+        }
+    }
+
+    $height: 72rem;
+
+    .col-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: $height;
+
+        @include media-breakpoint-down(md) {
+            min-height: $height /2;
+            padding: 10rem 0;
+        }
+
+        .item-body {
+            padding: 2.5rem;
+            max-width: 52rem;
+            width: 100%;
+        }
+    }
+
+    .col-image {
+        overflow: hidden;
+        text-align: center;
+
+        @include media-breakpoint-down(lg) {
+            height: 100vh;
+            max-height: $height;
+        }
+        @include media-breakpoint-down(md) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            max-height: $height/.5;
+        }
+
+        &.contain-image {
+            padding: 2.5%;
+
+            @include media-breakpoint-down(md) {
+                padding: 0;
+            }
+
+        }
+
+        img {
+            object-fit: cover;
+            min-height: 100%;
+            width: auto;
+
+            @include media-breakpoint-down(md) {
+                width: 100vw;
+            }
+        }
+    }
+}

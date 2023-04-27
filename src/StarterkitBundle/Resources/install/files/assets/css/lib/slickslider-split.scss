@@ -1,0 +1,195 @@
+$height: 100vh;
+$max-height: 110rem;
+$width: 100%;
+
+.slick-slider {
+    visibility: hidden;
+
+    &.slick-initialized {
+        visibility: visible;
+    }
+}
+
+.wrapper--hero-slick-slider {
+    overflow: hidden;
+    position: relative;
+    height: $height;
+    max-height: $max-height;
+    margin: 0 auto;
+
+    .slider-overlay {
+        @include positionAbsFill();
+        content: '';
+        height: $height;
+        max-height: $max-height;
+        z-index: 3;
+    }
+
+    .slider-wrapper {
+        position: relative;
+    }
+
+    .slider {
+        width: $width;
+        height: $height;
+        max-height: $max-height;
+
+        * {
+            outline: none;
+        }
+
+        .item {
+            height: $height;
+            max-height: $max-height;
+            width: $width;
+            position: relative;
+            overflow: hidden;
+            border: none;
+
+            .text {
+                display: none;
+            }
+
+            img {
+                position: absolute;
+                object-fit: cover;
+                height: 100vh;
+                max-height: $max-height;
+            }
+        }
+    }
+
+
+    .slideshow-left {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .slideshow-right {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        right: 0;
+        z-index: 2;
+        overflow: hidden;
+
+        .slick-list {
+            left: -50%;
+        }
+    }
+
+    .slideshow-text {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 3;
+        width: $width;
+        height: $height;
+        max-height: $max-height;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+
+        &.slick-initialized {
+            opacity: 1;
+            transition: all 1s ease-in-out;
+        }
+
+        .item-content {
+            .content-wrapper {
+                display: flex;
+                flex-direction: column;
+                width: 75%;
+                max-width: 90rem;
+                color: $white;
+                margin: auto;
+                font-size: 2.2em;
+                font-weight: 900;
+
+                .title {
+                    font-size: 4.2rem;
+                }
+            }
+        }
+    }
+
+    .slider-nav-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: auto;
+        margin-right: 1.25rem;
+        z-index: 100;
+        width: 4.5rem;
+        height: 100%;
+        color: white;
+        display: flex;
+        align-items: center;
+
+        .inner {
+            display: flex;
+            flex-direction: column;
+
+            .slick-nav {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+
+                i {
+                    font-size: 3.25rem;
+                }
+            }
+        }
+
+        .slick-dots {
+            position: unset;
+            padding: 1.25rem 0;
+        }
+
+        li {
+            display: block;
+            width: 100%;
+            height: auto;
+
+            & button {
+                position: relative;
+                height: 1.5rem;
+                text-align: right;
+
+                &:before {
+                    content: '';
+                    background: white;
+                    color: white;
+                    height: .5rem;
+                    width: 2.5rem;
+                    border-radius: .25rem;
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    left: auto;
+                    transform: translateY(-50%);
+                    transition: all .3s ease-in-out;
+                    opacity: 0.75;
+                }
+            }
+
+            &.slick-active {
+                button {
+                    &:before {
+                        width: 4rem;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
