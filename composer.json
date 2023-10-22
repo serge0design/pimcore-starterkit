@@ -51,8 +51,6 @@
         "twig/string-extra": "^v3.7.1",
         "ext-intl": "*",
         "ext-mbstring": "*",
-        "serge0design/pimcore-starterkit-areas": "^1.0",
-        "serge0design/pimcore-custom-twig": "^1.0",
         "symfony/webpack-encore-bundle": "^v1.17.2",
         "dachcom-digital/formbuilder": "^4.2",
         "pringuin/dataprivacybundle" : "^1.0"
