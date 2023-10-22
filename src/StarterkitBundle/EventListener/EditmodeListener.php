@@ -17,7 +17,7 @@ class EditmodeListener implements EventSubscriberInterface
         ];
     }
 
-    public function onEditObjectsJsPaths(PathsEvent $event)
+    final public function onEditObjectsJsPaths(PathsEvent $event): void
     {
         $event->setPaths(array_merge($event->getPaths(), [
             '/build/ckeditor/config.js'

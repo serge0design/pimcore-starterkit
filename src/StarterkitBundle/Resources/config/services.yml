@@ -3,14 +3,12 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-    public: true
-
+    public: false
   StarterkitBundle\Tools\Install:
     arguments:
       $bundle: "@=service('kernel').getBundle('StarterkitBundle')"
     calls:
-      - [ setTokenStorageUserResolver, [ '@Pimcore\Bundle\AdminBundle\Security\User\TokenStorageUserResolver' ] ]
-  #      - [ setSerializer, [ '@serializer' ] ]
+      - [ setTokenStorageUserResolver, [ '@Pimcore\Security\User\TokenStorageUserResolver' ] ]
 
   StarterkitBundle\Event\ValidKeyFormatter:
     class: StarterkitBundle\Event\ValidKeyFormatter

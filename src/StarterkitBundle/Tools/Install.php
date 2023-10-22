@@ -2,25 +2,18 @@
 
 namespace StarterkitBundle\Tools;
 
-use http\Exception\InvalidArgumentException;
-use Pimcore\Event\DataObjectClassDefinitionEvents;
 use Pimcore\Extension\Bundle\Installer\SettingsStoreAwareInstaller;
-use Pimcore\Bundle\AdminBundle\Security\User\TokenStorageUserResolver;
+use Pimcore\Security\User\TokenStorageUserResolver;
 use Pimcore\Extension\Bundle\Installer\Exception\InstallationException;
 use Pimcore\Model\DataObject;
 use Pimcore\Model\Document;
 use Pimcore\Model\Document\DocType;
 use Pimcore\Model\Exception\NotFoundException;
-use Pimcore\Model\Property;
 use Pimcore\Model\Property\Predefined;
-use Pimcore\Model\Translation;
 use Pimcore\Model\User;
 use Pimcore\Model\WebsiteSetting;
-use Pimcore\Tool;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Filesystem\Path;
-use Pimcore\Model\Asset\Image\Thumbnail\Config;
 use Symfony\Component\Finder\Finder;
 
 class Install extends SettingsStoreAwareInstaller
@@ -36,12 +29,12 @@ class Install extends SettingsStoreAwareInstaller
         'CompanyInformation', 'Card', 'FormContact', 'HeroSlide'
     ];
 
-    public function setTokenStorageUserResolver(TokenStorageUserResolver $resolver): void
+    final public function setTokenStorageUserResolver(TokenStorageUserResolver $resolver): void
     {
         $this->resolver = $resolver;
     }
 
-    public function install(): void
+    final public function install(): void
     {
         $this->installFiles();
         $this->installDocuments();
@@ -158,7 +151,8 @@ class Install extends SettingsStoreAwareInstaller
                 try {
                     $docType->getDao()->save();
                 } catch (\Exception $e) {
-                    throw new InstallationException(sprintf('Failed to save document type "$s". Error was "%s', $elementName, $e->getMessage()));
+                    throw new InstallationException(sprintf(
+                        'Failed to save document type "$s". Error was "%s', $doctypeonfig, $e->getMessage()));
                 }
             }
 
@@ -343,6 +337,7 @@ class Install extends SettingsStoreAwareInstaller
                 $id = $class->getDao()->getIdByName($className);
             } catch (NotFoundException $e) {
                 $id = false;
+                throw new InstallationException(sprintf('Failed to save entry "$s". Error was "%s', $className, $e->getMessage()));
             }
             if ($id !== false) {
                 continue;
@@ -380,7 +375,6 @@ class Install extends SettingsStoreAwareInstaller
         if ($user instanceof User) {
             $userId = $this->resolver->getUser()->getId();
         }
-
         return $userId;
     }
 
