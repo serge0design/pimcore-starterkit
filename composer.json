@@ -52,8 +52,8 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "symfony/webpack-encore-bundle": "^v1.17.2",
-        "dachcom-digital/formbuilder": "^4.2",
-        "pringuin/dataprivacybundle" : "^1.0"
+        "dachcom-digital/formbuilder": "^v5.0.0",
+        "pringuin/dataprivacybundle" : "^v2.1"
     },
     "require-dev": {
         "codeception/codeception": "^5.0.3",
