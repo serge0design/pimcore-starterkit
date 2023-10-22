@@ -34,13 +34,32 @@
         }
     },
     "require": {
-        "pimcore/pimcore": "10.*",
+        "pimcore/pimcore": "^11.0",
+        "pimcore/admin-ui-classic-bundle": "^1.0",
+        "pimcore/bundle-generator": "^2.0",
+        "pimcore/ecommerce-framework-bundle": "^1.0",
+        "pimcore/file-explorer-bundle": "^1.0",
+        "pimcore/google-marketing-bundle": "^1.0",
+        "pimcore/newsletter-bundle": "^1.0",
+        "pimcore/personalization-bundle": "^1.0",
+        "pimcore/system-info-bundle": "^1.0",
+        "pimcore/web-to-print-bundle": "^1.0",
+        "symfony/dotenv": "^6.2",
+        "symfony/runtime": "^6.2",
+        "symfony/ux-twig-component": "^v2.3.0",
+        "twig/extra-bundle": "^v3.7.1",
+        "twig/string-extra": "^v3.7.1",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
         "serge0design/pimcore-starterkit-areas": "^1.0",
         "serge0design/pimcore-custom-twig": "^1.0",
-        "symfony/webpack-encore-bundle" : "^v1.16",
+        "symfony/webpack-encore-bundle": "^v1.17.2",
         "dachcom-digital/formbuilder": "^4.2",
         "pringuin/dataprivacybundle" : "^1.0"
     },
-    "require-dev": {}
+    "require-dev": {
+        "codeception/codeception": "^5.0.3",
+        "codeception/module-symfony": "^3.1.0"
+    }
 }
 
