@@ -3,7 +3,7 @@ services:
   _defaults:
     autowire: true
     autoconfigure: true
-    public: false
+    public: true #just a quick fix--use dependencyInjection
   StarterkitBundle\Tools\Install:
     arguments:
       $bundle: "@=service('kernel').getBundle('StarterkitBundle')"
