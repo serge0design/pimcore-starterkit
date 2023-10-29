@@ -1,17 +1,52 @@
 <?php
-declare(strict_types=1);
+namespace App\Controller;
 
-namespace App\Document\Areabrick;
+use Pimcore\Controller\FrontendController;
+use Pimcore\Model\DataObject;
+use Pimcore\Tool;
+use Symfony\Component\HttpFoundation\Request;
 
-use \StarterkitAreasBundle\Document\Areabrick\AbstractBaseAreabrick as AbstractStarterBaseAreabrick;
-
-abstract class AbstractBaseAreabrick extends AbstractStarterBaseAreabrick
+class AbstractBaseAreabrick extends FrontendController
 {
     /**
-     * @inheritDoc
+     * @param Request $request
+     * @param DataObject $object
+     *
+     * @return bool
      */
-    public function getTemplateLocation()
+    protected function verifyPreviewRequest(Request $request, DataObject $object): bool
     {
-        return static::TEMPLATE_LOCATION_GLOBAL;
+        if (Tool::isElementRequestByAdmin($request, $object)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * @param Request $request
+     *
+     * @return array
+     */
+    protected function getAllParameters(Request $request): array
+    {
+        return array_merge($request->request->all(), $request->query->all());
     }
 }
+
+//declare(strict_types=1);
+//
+//namespace App\Document\Areabrick;
+//
+////use \StarterkitAreasBundle\Document\Areabrick\AbstractBaseAreabrick as AbstractStarterBaseAreabrick;
+//
+//abstract class AbstractBaseAreabrick extends AbstractStarterBaseAreabrick
+//{
+//    /**
+//     * @inheritDoc
+//     */
+//    public function getTemplateLocation()
+//    {
+//        return static::TEMPLATE_LOCATION_GLOBAL;
+//    }
+//}

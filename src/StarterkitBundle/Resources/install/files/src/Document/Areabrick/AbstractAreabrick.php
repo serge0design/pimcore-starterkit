@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Document\Areabrick;
 
-use \StarterkitAreasBundle\Document\Areabrick\AbstractAreabrick as AbstractStarterAreabrick;
+use App\Controller\AbstractBaseAreabrick as AbstractStarterAreabrick;
 
 abstract class AbstractAreabrick extends AbstractStarterAreabrick
 {
