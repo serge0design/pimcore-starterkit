@@ -52,7 +52,7 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "serge0design/pimcore-starterkit-areas": "^1.0.3",
-        "serge0design/pimcore-custom-twig": "^v1.0.0",
+        "serge0design/pimcore-custom-twig": "^v1.0.1",
         "symfony/webpack-encore-bundle": "^v1.17.2",
         "dachcom-digital/formbuilder": "^v5.0.0",
         "pringuin/dataprivacybundle" : "^v2.1"
