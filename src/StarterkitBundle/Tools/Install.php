@@ -54,19 +54,31 @@ class Install extends SettingsStoreAwareInstaller
         $sourceFiles = dirname(__DIR__) . '/Resources/install/files';
         $sourceFiles = realpath($sourceFiles);
 
-        $projectRoot = PIMCORE_PROJECT_ROOT;
-        $defaultSkeletonDir = PIMCORE_PROJECT_ROOT . '/templates/default';
-        $defaultSkeletonDir = realpath($defaultSkeletonDir);
-
         $finder = new Finder();
-        $finder->files()->in($defaultSkeletonDir)->contains([
-            'Example', 'logo-claim-gray', 'Where can I edit some pages?', '/www.pimcore.com/i'
+        $filesystem = new Filesystem();
+
+        $projectRoot = PIMCORE_PROJECT_ROOT;
+        $skeletonDefaultTemplatePath = $projectRoot . '/templates/default';
+        $checkDefaultSkeletonDir = realpath($skeletonDefaultTemplatePath);
+
+        $finder->files()->in($checkDefaultSkeletonDir)->contains([
+            'Ready'
         ]);
+
+        $filesToDelete = [
+            $projectRoot . '/config/bundles.php',
+            $projectRoot . '/config/pimcore/constants.example.php'
+        ];
+
+        foreach ($filesToDelete as $file) {
+            if ($filesystem->exists($file)) {
+                $filesystem->remove($file);
+            }
+        }
 
         try {
             foreach ($finder as $file) {
-                if (is_file($file)) {
-                    $filesystem = new Filesystem();
+                if ($filesystem->exists($file)) {
                     $filesystem->remove($file);
                     $filesystem->mirror($sourceFiles, $projectRoot);
                 }
@@ -74,6 +86,8 @@ class Install extends SettingsStoreAwareInstaller
         } catch (IOExceptionInterface $e) {
             echo "An error occurred while creating your directory at " . $e->getPath();
         }
+
+
     }
 
     private function installDocuments(): void
@@ -223,10 +237,10 @@ class Install extends SettingsStoreAwareInstaller
             ],
             'selectPageCssClass' => [
                 'name' => 'Select Page Css Class',
-                'description' => 'Choose a diffrent design of a document',
+                'description' => '>Add a CSS class to a document',
                 'type' => 'select',
                 'data' => '',
-                'config' => 'Red, Green, Blue',
+                'config' => 'Home, Contact',
                 'ctype' => 'document',
                 'inheritable' => true
             ],
@@ -333,15 +347,15 @@ class Install extends SettingsStoreAwareInstaller
         foreach ($this->getClasses() as $className => $path) {
             $class = new DataObject\ClassDefinition();
 
-            try {
-                $id = $class->getDao()->getIdByName($className);
-            } catch (NotFoundException $e) {
-                $id = false;
-                throw new InstallationException(sprintf('Failed to save entry "$s". Error was "%s', $className, $e->getMessage()));
-            }
-            if ($id !== false) {
-                continue;
-            }
+//            try {
+//                $id = $class->getDao()->getIdByName($className);
+//            } catch (NotFoundException $e) {
+//                $id = false;
+//                throw new InstallationException(sprintf('Failed to save entry "$s". Error was "%s', $className, $e->getMessage()));
+//            }
+//            if ($id !== false) {
+//                continue;
+//            }
 
             $class->setName($className);
             $data = file_get_contents($path);

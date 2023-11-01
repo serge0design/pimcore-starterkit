@@ -20,6 +20,11 @@ use Pimcore\Bundle\SystemInfoBundle\PimcoreSystemInfoBundle;
 use Symfony\WebpackEncoreBundle\WebpackEncoreBundle;
 use Presta\SitemapBundle\PrestaSitemapBundle;
 
+use StarterkitBundle\StarterkitBundle;
+use StarterkitAreasBundle\StarterkitAreasBundle;
+use CustomEditablesBundle\CustomEditablesBundle;
+use CustomTwigBundle\CustomTwigBundle;
+
 return [
     PimcoreSimpleBackendSearchBundle::class => ['all' => true],
     PimcoreTinymceBundle::class => ['all' => true],
@@ -39,4 +44,7 @@ return [
     PimcoreSystemInfoBundle::class => ['all' => true],
     WebpackEncoreBundle::class => ['all' => true],
     PrestaSitemapBundle::class => ['all' => true],
+    StarterkitBundle::class => ['all' => true],
+    CustomEditablesBundle::class => ['all' => true],
+    CustomTwigBundle::class => ['all' => true]
 ];
