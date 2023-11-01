@@ -62,7 +62,7 @@ class Install extends SettingsStoreAwareInstaller
         $checkDefaultSkeletonDir = realpath($skeletonDefaultTemplatePath);
 
         $finder->files()->in($checkDefaultSkeletonDir)->contains([
-            'Ready'
+            'Example', 'logo-claim-gray', 'Where can I edit some pages?', '/www.pimcore.com/i'
         ]);
 
         $filesToDelete = [
