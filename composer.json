@@ -1,24 +1,21 @@
 {
     "name": "serge0design/pimcore-starterkit",
-    "license": "GPL-3.0-or-later",
     "type": "pimcore-bundle",
-    "keywords": [
-        "pimcore",
-        "starterkit"
-    ],
-    "description": "This Pimcore StarterkitBundle copies some recommended files to setup a boilerplate template and requires an new pimcore skeleton base Instalation.",
+    "license": "GPL-3.0-or-later",
+    "keywords": ["pimcore","starterkit"],
+    "description": "This Pimcore StarterkitBundle copies some starter files to setup a pimcore boilerplate template. It requires an new pimcore skeleton base Instalation, else do not install it",
     "homepage": "https://github.com/serge0design/pimcore-starterkit.git",
     "authors": [
         {
             "name": "serge.design - Serge",
-            "email": "github@serge.design",
-            "homepage": "https://serge.design",
+            "email": "github@serge-design.ch",
+            "homepage": "https://serge-design.ch",
             "role": "Developer"
         }
     ],
     "autoload": {
         "psr-4": {
-            "StarterkitBundle\\": "src/StarterkitBundle"
+            "StarterkitBundle\\": "src/"
         }
     },
     "autoload-dev": {
@@ -34,6 +31,8 @@
         }
     },
     "require": {
+        "ext-intl": "*",
+        "ext-mbstring": "*",
         "pimcore/pimcore": "^v11.1.0",
         "pimcore/admin-ui-classic-bundle": "^1.0",
         "pimcore/bundle-generator": "^2.0",
@@ -47,19 +46,21 @@
         "symfony/dotenv": "^6.2",
         "symfony/runtime": "^6.2",
         "symfony/ux-twig-component": "^v2.3.0",
+        "symfony/webpack-encore-bundle": "^v1.17.2",
         "twig/extra-bundle": "^v3.7.1",
         "twig/string-extra": "^v3.7.1",
-        "ext-intl": "*",
-        "ext-mbstring": "*",
-        "serge0design/pimcore-starterkit-areas": "^1.0.3",
-        "serge0design/pimcore-custom-twig": "^v1.0.1",
-        "symfony/webpack-encore-bundle": "^v1.17.2",
+        "serge0design/pimcore-starterkit-areas": "^1.0.0",
+        "serge0design/pimcore-custom-twig": "^v1.0.0",
         "dachcom-digital/formbuilder": "^v5.0.0",
         "pringuin/dataprivacybundle" : "^v2.1"
     },
     "require-dev": {
-        "codeception/codeception": "^5.0.3",
-        "codeception/module-symfony": "^3.1.0"
+        "codeception/codeception": "^5.0",
+        "codeception/module-symfony": "^3.1",
+        "codeception/module-webdriver": "^4.0",
+        "phpstan/phpstan": "^1.0",
+        "phpstan/phpstan-symfony": "^1.0",
+        "symplify/easy-coding-standard": "^9.0"
     }
 }
 

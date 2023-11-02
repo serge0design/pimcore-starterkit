@@ -1,9 +1,9 @@
 <?php
 
-namespace StarterkitBundle;
+namespace SergeDesign\Bundle\StarterkitBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
-use StarterkitBundle\Tools\Install;
+use Tools\Install;
 
 class StarterkitBundle extends AbstractPimcoreBundle
 {
